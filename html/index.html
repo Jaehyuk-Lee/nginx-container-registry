@@ -7,11 +7,20 @@
 </head>
 
 <body>
-  <h2>DB 체크</h2>
+  <h2>DB 관리 페이지</h2>
 
-  이름 입력: <input type="text" name="name">
-  <input type="button" value="조회" onclick="javascript:send('search');">
-  <br>
+  <div id="input">
+    userID를 기준으로 DB를 업데이트 합니다.<br>
+    userID: <input type="text" name="userID"><br>
+    <input type="button" value="조회" onclick="javascript:send('searchUserID');"><br>
+    이름: <input type="text" name="name"><br>
+    주민번호: <input type="text" name="residentRegistrationNumber"><br>
+    연락처: <input type="text" name="contactNumber"><br>
+    주소: <input type="text" name="address"><br>
+    이메일: <input type="text" name="email"><br>
+    <input type="button" value="업데이트" onclick="javascript:update();">
+  </div>
+
   <p>&copy 2024 클라우드 엔지니어 프로젝트</p>
 </body>
 
