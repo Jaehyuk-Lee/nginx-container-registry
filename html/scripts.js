@@ -1,7 +1,7 @@
 function send(type) {
   const SERVER_IP = `http://${WAS_IP}:3000/${type}/`;
   let name = document.querySelector("input[name='name']").value;
-  sendGet(SERVER_IP + type, name);
+  sendGet(SERVER_IP, name);
 }
 
 function sendGet(url, name = '') {
