@@ -1,4 +1,4 @@
-const WAS_IP = 'localhost';
+const WAS_IP = '192.168.111.21';
 
 const TYPE_INFO = {
   search: {
