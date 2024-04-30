@@ -26,12 +26,17 @@ function httpRequest(url, method, type, params) {
   http.onreadystatechange = function () {
     if (http.status == 200) {
       if (http.readyState == 4) {
-        const res = JSON.parse(http.responseText);
-        if (type === 'update' && res.affectedRows) {
-          alert('성공적으로 처리되었습니다.\n영향을 받은 행 수: ' + res.affectedRows);
-        }
+        const res = http.responseText === undefined ? '' : JSON.parse(http.responseText);
+        if (type === 'update' || type === 'insert' || type === 'delete')
+          if (res.affectedRows > 0)
+            alert('성공적으로 처리되었습니다.\n영향을 받은 행 수: ' + res.affectedRows);
+          else
+            alert('실패했습니다.');
         else if (type === 'searchUserID') {
-          console.log(res[0]);
+          if (res.length === 0) {
+            alert('검색 결과가 없습니다.');
+            return;
+          }
           for (const [key, value] of Object.entries(res[0])) {
             let k = key[0].toLowerCase() + key.slice(1);
             document.querySelector(`input[name='${k}']`).value = value;
@@ -39,6 +44,7 @@ function httpRequest(url, method, type, params) {
         }
         else if (type === 'search') {
           alert(res);
+          console.log(res);
         }
       }
     } else {

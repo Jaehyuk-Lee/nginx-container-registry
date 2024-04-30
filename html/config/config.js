@@ -1,4 +1,4 @@
-const WAS_IP = '192.168.111.21';
+const WAS_IP = 'localhost';
 
 const TYPE_INFO = {
   search: {
@@ -16,13 +16,32 @@ const TYPE_INFO = {
   update: {
     params:
       [
+        'userID',
         'name',
         'residentRegistrationNumber',
         'contactNumber',
         'address',
         'email',
+      ],
+    method: 'POST',
+  },
+  insert: {
+    params:
+      [
+        'userID',
+        'name',
+        'residentRegistrationNumber',
+        'contactNumber',
+        'address',
+        'email',
+      ],
+    method: 'POST',
+  },
+  delete: {
+    params:
+      [
         'userID',
       ],
     method: 'POST',
-  }
+  },
 };
