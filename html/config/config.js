@@ -28,7 +28,6 @@ const TYPE_INFO = {
   insert: {
     params:
       [
-        'userID',
         'name',
         'residentRegistrationNumber',
         'contactNumber',
